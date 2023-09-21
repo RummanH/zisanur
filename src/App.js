@@ -1,12 +1,21 @@
-import React from 'react'
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Home";
+import PageNotFound from "./PageNotFound";
 
 const App = () => {
-  return (
-    <div className='home'>
-      <img src='./logo.png' alt='BeÓrganic'/>
-      <h4>This site is under construction...</h4>
-    </div>
-  )
-}
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "*",
+      element: <PageNotFound />,
+    },
+  ]);
 
-export default App
+  return <RouterProvider router={router} />;
+};
+
+export default App;
